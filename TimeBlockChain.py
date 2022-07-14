@@ -15,15 +15,15 @@ def next_block(last_block):
   
 def check_hacker(blockchain):
   for i in range(1, len(blockchain)):
-    hash = Block.hash_block(Block(i, blockchain[i].timestamp, blockchain[i].data, blockchain[i - 1].hash))
-    if blockchain[i].hash != hash:
-      return "Block " + str(i) + " is hacked! - hash"
-  return "Data safe! - hash"
+    block = Block(i, blockchain[i].timestamp, blockchain[i].data, blockchain[i - 1].hash)
+    if blockchain[i].hash != block.hash:
+      return "Block " + str(i) + " is hacked!"
+  return "Data safe!"
 
 def check_hacker_basic(blockchain):
   pre_block = blockchain[0]
   for i in range(1, len(blockchain)):
-    if blockchain[i].hash != pre_block.hash:
+    if blockchain[i].previous_hash != pre_block.hash:
       return "Block " + str(i) + " is hacked! - basic"
     pre_block = blockchain[i]
   return "Data safe! - basic"
