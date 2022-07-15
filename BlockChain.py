@@ -1,6 +1,5 @@
-import hashlib as hasher
 import datetime as date
-import random
+import json
 
 from numpy import block
 from Block import *
@@ -15,6 +14,14 @@ class BlockChain:
         
     def create_genesis_block(seft):
         return Block(0, date.datetime.now(), "Genesis Block", previous_hash= "0")
+    
+    def read_data(self):
+        try:
+            f = open ('blocks.json', "r")
+            data = json.loads(f.read())
+            self.blocks = [Block(js['index'], js['timestamp'], js['data'], js['previous_hash']) for js in data]
+        except:
+            self.blocks = [self.create_genesis_block()]
     
     def next_block(self):
         last_block = self.blocks[len(self.blocks) - 1]

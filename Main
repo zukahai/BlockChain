@@ -3,10 +3,13 @@ import json
 
 if __name__ == "__main__":
     a = BlockChain()
+    a.read_data()
     a.add(a.next_block())
-    a.add(a.next_block())
-    a.add(a.next_block())
-    blocks = []
+    
+    for block in a.blocks:
+        print(block)
+    print(a.check_hacker())
+    
     json_string = json.dumps([ob.__dict__ for ob in a.blocks], default=str, ensure_ascii=False, indent=4)
     print(json_string)
     with open('blocks.json', 'w', encoding='utf-8') as f:
