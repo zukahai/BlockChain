@@ -7,10 +7,7 @@ if __name__ == "__main__":
     a.add(a.next_block())
     a.add(a.next_block())
     blocks = []
-    for block in a.blocks:
-        blocks.append(json.dumps(block.__dict__, indent=4, sort_keys=True, default=str))
-    j = json.dumps(a.blocks[1].__dict__, indent=4, sort_keys=True, default=str)
-    print(j)
-    
+    json_string = json.dumps([ob.__dict__ for ob in a.blocks], default=str, ensure_ascii=False, indent=4)
+    print(json_string)
     with open('blocks.json', 'w', encoding='utf-8') as f:
-        f.write(j)
+        f.write("{}".format(json_string))

@@ -1,0 +1,3 @@
+{"data": blocks}
+    # with open('blocks.json', 'w', encoding='utf-8') as f:
+    #     f.write(json.dumps(x.b))

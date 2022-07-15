@@ -1,7 +1,30 @@
-{
-    "data": "block1",
-    "hash": "a54e5d1000700fddc0556387e0a57bbb15cddac5aa8e405c69f48659aed0edee",
-    "index": 1,
-    "previous_hash": "a93e8ad378be3da538a4f87e7ea71f03446fa6caf08fb4d4509ec2ae7545d462",
-    "timestamp": "2022-07-15 12:10:52.989838"
-}
+[
+    {
+        "index": 0,
+        "timestamp": "2022-07-15 13:41:07.000143",
+        "data": "Genesis Block",
+        "previous_hash": "0",
+        "hash": "ae97d35ce10a28f6e76f6ce9c470b798a80b4a5f0fc4fad0235cce4acb520b02"
+    },
+    {
+        "index": 1,
+        "timestamp": "2022-07-15 13:41:07.000143",
+        "data": "block1",
+        "previous_hash": "ae97d35ce10a28f6e76f6ce9c470b798a80b4a5f0fc4fad0235cce4acb520b02",
+        "hash": "afdf7d230d67dedd8bf073486b2ee6ee8f0475f8c3320c32d564ef47bac08d49"
+    },
+    {
+        "index": 2,
+        "timestamp": "2022-07-15 13:41:07.000143",
+        "data": "block2",
+        "previous_hash": "afdf7d230d67dedd8bf073486b2ee6ee8f0475f8c3320c32d564ef47bac08d49",
+        "hash": "a692f022f003b775c2b513d3fe3d4aff297cf88576b98e2c620582142ea23893"
+    },
+    {
+        "index": 3,
+        "timestamp": "2022-07-15 13:41:07.000143",
+        "data": "block3",
+        "previous_hash": "a692f022f003b775c2b513d3fe3d4aff297cf88576b98e2c620582142ea23893",
+        "hash": "a8747efc735999c8f3530745a41a964f6ddea39b952c9f7ab01fb11b65cda993"
+    }
+]
