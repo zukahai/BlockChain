@@ -8,6 +8,8 @@ class BlockChain:
     
     def __init__(self):
         self.blocks = [self.create_genesis_block()]
+        
+    
     
     def add(self, block):
         self.blocks.append(block)
@@ -17,11 +19,16 @@ class BlockChain:
     
     def read_data(self):
         try:
-            f = open ('blocks.json', "r")
+            f = open ('data/blocks.json', "r")
             data = json.loads(f.read())
             self.blocks = [Block(js['index'], js['timestamp'], js['data'], js['previous_hash']) for js in data]
         except:
             self.blocks = [self.create_genesis_block()]
+            
+    def save_data(self):
+        json_string = json.dumps([ob.__dict__ for ob in self.blocks], default=str, ensure_ascii=False, indent=4)
+        with open('data/blocks.json', 'w', encoding='utf-8') as f:
+            f.write("{}".format(json_string))
     
     def next_block(self):
         last_block = self.blocks[len(self.blocks) - 1]
@@ -32,10 +39,11 @@ class BlockChain:
         return Block(this_index, this_timestamp, this_data, this_hash)
     
     def check_hacker(self):
-        blockchain = self.blocks
-        for i in range(1, len(blockchain)):
-            block = Block(i, blockchain[i].timestamp, blockchain[i].data, blockchain[i - 1].hash)
-            if blockchain[i].hash != block.hash:
+        for i in range(1, len(self.blocks)):
+            block = Block(i, self.blocks[i].timestamp, self.blocks[i].data, self.blocks[i - 1].hash)
+            if self.blocks[i].hash != block.hash:
+                print(self.blocks[i].hash, block.hash)
+                # self.blocks[i].hash = block.hash
                 return "Block " + str(i) + " is hacked!"
         return "Data safe!"
       

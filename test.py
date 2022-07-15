@@ -1,8 +1,8 @@
 import json
 
-f = open ('blocks.json', "r")
+f = open ('data/blocks.json', "r")
   
 # Reading from file
 data = json.loads(f.read())
 
-print(dataơ)
+print(data)

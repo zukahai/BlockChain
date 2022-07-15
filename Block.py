@@ -15,9 +15,10 @@ class Block:
     return self.index
 
   def hash_block(self):
-    d = 1
+    d = 0
     sha = (str(self.index) + str(self.timestamp) + str(self.data) + str(self.previous_hash))
-    while sha[0: d] != "a" * d:
+    sha = hasher.sha256(sha.encode('utf-8')).hexdigest()
+    while d > 0 and sha[0: d] != "a" * d:
       sha = hasher.sha256(sha.encode('utf-8')).hexdigest()
     return sha
   
