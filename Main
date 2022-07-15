@@ -1,8 +1,16 @@
 from BlockChain import *
+import json
 
-a = BlockChain()
-a.add(a.next_block())
-a.add(a.next_block())
-a.add(a.next_block())
-print(a)
-print(a.check_hacker())
+if __name__ == "__main__":
+    a = BlockChain()
+    a.add(a.next_block())
+    a.add(a.next_block())
+    a.add(a.next_block())
+    blocks = []
+    for block in a.blocks:
+        blocks.append(json.dumps(block.__dict__, indent=4, sort_keys=True, default=str))
+    j = json.dumps(a.blocks[1].__dict__, indent=4, sort_keys=True, default=str)
+    print(j)
+    
+    with open('app.json', 'w', encoding='utf-8') as f:
+        f.write(j)
