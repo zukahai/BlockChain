@@ -9,8 +9,11 @@ class Block:
     self.hash = self.hash_block()
 
   def hash_block(self):
-    d = 4
+    d = 1
     sha = (str(self.index) + str(self.timestamp) + str(self.data) + str(self.previous_hash))
     while sha[0: d] != "a" * d:
       sha = hasher.sha256(sha.encode('utf-8')).hexdigest()
     return sha
+  
+  def __str__(self):
+    return "Index: {}\nTimestamp: {}\nData: {}\nPrevious_hash: {}\nHash: {}\n".format(self.index, self.timestamp, self.data, self.previous_hash, self.hash)

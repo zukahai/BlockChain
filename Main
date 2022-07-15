@@ -1,0 +1,8 @@
+from BlockChain import *
+
+a = BlockChain()
+a.add(a.next_block())
+a.add(a.next_block())
+a.add(a.next_block())
+print(a)
+print(a.check_hacker())
