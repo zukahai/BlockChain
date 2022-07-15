@@ -8,8 +8,6 @@ class BlockChain:
     
     def __init__(self):
         self.blocks = [self.create_genesis_block()]
-        
-    
     
     def add(self, block):
         self.blocks.append(block)
@@ -19,7 +17,7 @@ class BlockChain:
     
     def read_data(self):
         try:
-            f = open ('data/blocks.json', "r")
+            f = open ('Data/blocks.json', "r")
             data = json.loads(f.read())
             self.blocks = [Block(js['index'], js['timestamp'], js['data'], js['previous_hash']) for js in data]
         except:
@@ -27,7 +25,7 @@ class BlockChain:
             
     def save_data(self):
         json_string = json.dumps([ob.__dict__ for ob in self.blocks], default=str, ensure_ascii=False, indent=4)
-        with open('data/blocks.json', 'w', encoding='utf-8') as f:
+        with open('Data/blocks.json', 'w', encoding='utf-8') as f:
             f.write("{}".format(json_string))
     
     def next_block(self):
