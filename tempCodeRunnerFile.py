@@ -1,0 +1,2 @@
+ a.blocks:
+        print(block)

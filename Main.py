@@ -10,5 +10,3 @@ if __name__ == "__main__":
     for block in a.blocks:
         print(block)
     print(a.check_hacker())
-    
-    
