@@ -1,8 +1,7 @@
 import datetime as date
 import json
 
-from numpy import block
-from Block import *
+from Model.Block import *
 class BlockChain:
     blocks = []
     

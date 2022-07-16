@@ -1,4 +1,4 @@
-from BlockChain import *
+from Model.BlockChain import *
 import json
 
 if __name__ == "__main__":
@@ -7,8 +7,8 @@ if __name__ == "__main__":
     # for i in range(1, 100):
     #     a.add(a.next_block())
     a.save_data()
-    # for block in a.blocks:
-    #     print(block)
+    for block in a.blocks:
+        print(block)
     print(a.check_hacker())
     
     

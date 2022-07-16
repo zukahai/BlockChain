@@ -1,7 +1,7 @@
 import hashlib as hasher
 import datetime as date
 import random
-from Block import *
+from Model.Block import *
 
 def create_genesis_block():
     return Block(0, date.datetime.now(), "Genesis Block", previous_hash= "0")
